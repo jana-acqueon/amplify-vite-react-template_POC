@@ -8,13 +8,6 @@ const client = generateClient<Schema>();
 function App() {
   const { signOut } = useAuthenticator();
 
-  useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }, []);
-
-
   return (
     <main>
       <button onClick={signOut}>Sign out</button>
